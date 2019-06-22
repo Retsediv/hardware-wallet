@@ -52,7 +52,15 @@ CFLAGS += -DSIGNATURE_DEBUG=1
 else
 CFLAGS += -DSIGNATURE_DEBUG=0
 endif
-OPTFLAGS ?= -flto -Os 
+
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	OPTFLAGS ?= -flto -Os 
+endif
+ifeq ($(UNAME_S),Darwin)
+	OPTFLAGS ?= -Os 
+endif
+
 DEBUG ?= 0
 
 LDSCRIPT = bootloader-memory.ld
