@@ -52,7 +52,7 @@ CFLAGS += -DSIGNATURE_DEBUG=1
 else
 CFLAGS += -DSIGNATURE_DEBUG=0
 endif
-OPTFLAGS ?= -Os
+OPTFLAGS ?= -flto -Os 
 DEBUG ?= 0
 
 LDSCRIPT = bootloader-memory.ld
