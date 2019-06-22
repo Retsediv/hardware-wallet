@@ -63,7 +63,7 @@ static uint32_t svhandler_flash_lock(void)
     return FLASH_SR;
 }
 
-extern volatile uint32_t system_millis;
+extern volatile uint64_t system_millis;
 
 void svc_handler_main(uint32_t* stack)
 {
